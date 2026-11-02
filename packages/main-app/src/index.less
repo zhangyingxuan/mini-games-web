@@ -1,0 +1,90 @@
+@import 'antd/dist/reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-cream: #fff8ed;
+  --color-cream-dark: #F5EDE3;
+  --color-coral: #FF6B6B;
+  --color-coral-light: #FF8E8E;
+  --color-yellow: #FFD93D;
+  --color-yellow-light: #FFE66D;
+  --color-teal: #4ECDC4;
+  --color-teal-light: #7EDDD6;
+  --color-lavender: #C3ACD0;
+  --color-lavender-light: #D4C1E0;
+  --color-charcoal: #2D3436;
+  --color-charcoal-light: #636E72;
+  --color-white: #FFFFFF;
+  --color-border: #E8DDD0;
+
+  --font-display: 'Nunito', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-body: 'DM Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+
+  --shadow-soft: 0 2px 8px rgba(45, 52, 54, 0.06);
+  --shadow-medium: 0 4px 16px rgba(45, 52, 54, 0.1);
+  --shadow-lifted: 0 8px 30px rgba(45, 52, 54, 0.12);
+  --shadow-playful: 4px 4px 0px rgba(45, 52, 54, 0.08);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 100px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-cream);
+  color: var(--color-charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dot pattern background texture */
+
+::selection {
+  background: var(--color-yellow);
+  color: var(--color-charcoal);
+}
+
+/* Override antd defaults globally */
+.ant-btn-primary {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.ant-card {
+  font-family: var(--font-body);
+}
+
+.ant-modal .ant-modal-content {
+  border-radius: var(--radius-lg);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-charcoal-light);
+}

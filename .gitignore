@@ -1,0 +1,10 @@
+# dependencies
+node_modules
+.vscode
+# production
+dist/
+
+# ai
+./kiro
+.claude
+.agents

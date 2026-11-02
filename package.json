@@ -1,0 +1,22 @@
+{
+  "name": "mini-games-web",
+  "version": "1.0.0",
+  "description": "亲子游戏类微前端网站",
+  "private": true,
+  "scripts": {
+    "build": "pnpm run build:main && pnpm run build:home && pnpm run build:games && pnpm run build:user",
+    "build:main": "pnpm --filter main-app run build",
+    "build:home": "pnpm --filter home-app run build",
+    "build:games": "pnpm --filter games-app run build",
+    "build:user": "pnpm --filter user-app run build",
+    "dev:main": "pnpm --filter main-app run dev",
+    "dev:home": "pnpm --filter home-app run dev",
+    "dev:games": "pnpm --filter games-app run dev",
+    "dev:user": "pnpm --filter user-app run dev",
+    "start": "pnpm run dev:main"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

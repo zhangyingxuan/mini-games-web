@@ -1,0 +1,33 @@
+.main-layout { min-height: 100vh; background: #fff8ed; color: #273c70; }
+.main-layout a { text-decoration: none; }
+.main-header { position: sticky; top: 0; z-index: 100; background: rgba(255, 248, 237, .96); border-bottom: 1px solid #f1e1d5; }
+.header-inner { max-width: 1320px; margin: auto; min-height: 82px; padding: 0 38px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo { display: flex; align-items: center; gap: 10px; color: #273c70; font-size: 20px; font-weight: 900; line-height: 1.1; white-space: nowrap; }
+.logo:hover, .footer-brand:hover { color: #e85f54; }
+.logo-mark { font-size: 38px; color: #f16a59; }
+.logo small { display: block; margin-top: 5px; font-size: 8px; font-weight: 800; letter-spacing: 1.6px; }
+.main-nav { display: flex; align-items: center; gap: 38px; height: 82px; }
+.main-nav a { display: flex; align-items: center; height: 100%; position: relative; color: #66739a; font-size: 14px; font-weight: 700; white-space: nowrap; }
+.main-nav a:hover, .main-nav a.active { color: #273c70; }
+.main-nav a.active::after { content: ''; position: absolute; bottom: 18px; left: 0; right: 0; height: 3px; border-radius: 3px; background: #ef754d; }
+.header-action { padding: 12px 20px; border-radius: 100px; background: #395dd3; color: #fff; font-size: 13px; font-weight: 800; white-space: nowrap; }
+.header-action span { margin-left: 14px; }
+.header-action:hover { background: #e85f54; color: #fff; }
+.main-content { max-width: 1320px; margin: 0 auto; padding: 0 38px 68px; min-height: 70vh; }
+.micro-app-container { display: block; width: 100%; min-height: 400px; }
+.main-footer { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding: 44px max(38px, calc((100% - 1244px) / 2)); background: #344ca0; color: #e0e7ff; }
+.footer-brand { color: #fff; font-size: 21px; font-weight: 900; }
+.main-footer p { margin: 10px 0 0; font-size: 13px; }
+.main-footer > span { font-size: 10px; letter-spacing: 1.5px; font-weight: 700; }
+.main-layout a:focus-visible { outline: 3px solid #ef754d; outline-offset: 4px; }
+@media (max-width: 700px) {
+  .header-inner { min-height: 68px; padding: 0 18px; gap: 12px; flex-wrap: wrap; }
+  .logo { font-size: 16px; }
+  .logo-mark { font-size: 30px; }
+  .logo small { font-size: 7px; }
+  .header-action { padding: 10px 14px; }
+  .main-nav { order: 3; height: 45px; width: 100%; justify-content: space-around; gap: 8px; }
+  .main-nav a.active::after { bottom: 4px; }
+  .main-content { padding: 0 18px 45px; }
+  .main-footer { padding: 34px 20px; align-items: start; flex-direction: column; }
+}

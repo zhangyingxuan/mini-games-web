@@ -1,0 +1,411 @@
+/* ============ Tank Game - Mobile First ============ */
+
+.tank-game-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 8px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  overflow: hidden;
+}
+
+/* ---- Header ---- */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  color: #fff;
+}
+
+.game-title {
+  margin: 0;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+
+  .score {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .lives {
+    font-size: 12px;
+    line-height: 1;
+  }
+}
+
+/* ---- Game Area ---- */
+.game-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.canvas-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.game-canvas {
+  display: block;
+  border: 3px solid #4a4a6a;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  max-width: 100%;
+}
+
+.start-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 6px;
+  z-index: 100;
+
+  h3 {
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 22px;
+  }
+
+  .subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+}
+
+/* ---- Touch Controls ---- */
+.touch-controls-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 8px;
+  gap: 16px;
+  touch-action: none;
+}
+
+.touch-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  max-width: 200px;
+}
+
+.player-label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.joystick-area {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+}
+
+.joystick-base {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.joystick-knob {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  opacity: 0.85;
+  transition: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.joystick-arrows {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  .arrow {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 14px;
+
+    &-up { top: 2px; left: 50%; transform: translateX(-50%); }
+    &-down { bottom: 2px; left: 50%; transform: translateX(-50%); }
+    &-left { left: 4px; top: 50%; transform: translateY(-50%); }
+    &-right { right: 4px; top: 50%; transform: translateY(-50%); }
+  }
+}
+
+.shoot-button {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  touch-action: none;
+
+  &:active {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+}
+
+/* ---- Desktop Controls Info ---- */
+.controls-info {
+  display: none;
+}
+
+/* ---- Game Over Modal ---- */
+.game-over-content {
+  text-align: center;
+  padding: 16px;
+
+  h2 {
+    font-size: 22px;
+    margin: 12px 0;
+  }
+}
+
+.trophy-icon {
+  font-size: 48px;
+  color: #ffa940;
+}
+
+.final-scores {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 16px 0;
+
+  .score-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+/* ============ Tablet (landscape) ============ */
+@media (min-width: 600px) {
+  .tank-game-container {
+    padding: 12px;
+  }
+
+  .game-title {
+    font-size: 18px;
+  }
+
+  .player-info .score,
+  .player-info .lives {
+    font-size: 14px;
+  }
+
+  .joystick-area {
+    width: 140px;
+    height: 140px;
+  }
+
+  .joystick-base {
+    width: 120px;
+    height: 120px;
+  }
+
+  .joystick-knob {
+    width: 52px;
+    height: 52px;
+  }
+
+  .shoot-button {
+    width: 72px;
+    height: 72px;
+    font-size: 28px;
+  }
+
+  .touch-controls {
+    max-width: 240px;
+  }
+}
+
+/* ============ Desktop ============ */
+@media (min-width: 1025px) {
+  .tank-game-container {
+    padding: 16px;
+  }
+
+  .game-header {
+    padding: 12px 24px;
+  }
+
+  .game-title {
+    font-size: 20px;
+  }
+
+  .player-info .score {
+    font-size: 14px;
+  }
+
+  .player-info .lives {
+    font-size: 16px;
+  }
+
+  .game-area {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .controls-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    min-width: 180px;
+    flex-shrink: 0;
+  }
+
+  .player-controls {
+    h4 {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      color: #1f1f1f;
+    }
+
+    p {
+      margin: 4px 0;
+      font-size: 13px;
+      color: #595959;
+    }
+
+    kbd {
+      display: inline-block;
+      padding: 2px 6px;
+      font-size: 12px;
+      font-family: monospace;
+      background: #fff;
+      border: 1px solid #d9d9d9;
+      border-radius: 4px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      margin: 0 2px;
+    }
+  }
+
+  .powerup-legend {
+    h4 {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      color: #1f1f1f;
+    }
+
+    p {
+      margin: 4px 0;
+      font-size: 13px;
+      color: #595959;
+    }
+  }
+}
+
+/* ============ Mobile-specific (touch active) ============ */
+.is-mobile {
+  .game-header {
+    padding: 6px 10px;
+    margin-bottom: 6px;
+  }
+
+  .game-area {
+    gap: 6px;
+  }
+
+  .game-canvas {
+    border-width: 2px;
+  }
+}
+
+/* ============ Fullscreen landscape on small devices ============ */
+@media (max-height: 500px) and (orientation: landscape) {
+  .tank-game-container {
+    padding: 4px;
+  }
+
+  .game-header {
+    padding: 4px 8px;
+    margin-bottom: 4px;
+
+    .game-title {
+      font-size: 12px;
+    }
+
+    .player-info .score,
+    .player-info .lives {
+      font-size: 10px;
+    }
+  }
+
+  .touch-controls-row {
+    padding: 0 4px;
+  }
+
+  .joystick-area {
+    width: 90px;
+    height: 90px;
+  }
+
+  .joystick-base {
+    width: 80px;
+    height: 80px;
+  }
+
+  .joystick-knob {
+    width: 36px;
+    height: 36px;
+  }
+
+  .shoot-button {
+    width: 52px;
+    height: 52px;
+    font-size: 20px;
+  }
+}
